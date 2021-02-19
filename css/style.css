@@ -1,0 +1,524 @@
+@charset "UTF-8";
+/*  common
+--------------------------------*/
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+body{
+    color: #333333;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    line-height: 1.615;
+    font-size: 13px;
+}
+a{
+    color: #999999;
+    text-decoration: none; /* 下線削除 */
+}
+.second-ttl{
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0 0 24px 0;
+}
+.sub-ttl{
+    font-size: 16px;
+    text-align: center;
+    margin: 0 0 64px 0;
+}
+.btn{
+    display: block;
+    width: 265px;
+    height: 45px;
+    background-color: #444444;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    margin: 0 auto 0 auto;
+    position: relative;
+    opacity: 1;
+    /* トランジション */
+    transition-property: background-color opacity;
+    transition-duration: 1s;
+    transition-delay: 0;
+    transition-timing-function: ease-in-out;
+}
+.btn-inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+}
+.btn-inner img{
+    position: absolute;
+    top: 17px;
+    right: 60px;
+    /* トランジション */
+    transition-property: right;
+    transition-duration: 0.6s;
+    transition-delay: 0;
+    transition-timing-function: ease-out;
+}
+.btn:hover{
+    background-color: #FF4444;
+    opacity: 0.6;
+}
+.btn:hover .btn-inner img{
+    right: 46px;
+}
+
+/*  animation
+--------------------------------*/
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes bottom-up{
+    0%{
+        bottom: -64px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+.fade-in{
+    /* アニメーション */
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-delay: 0;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/*  slideshow
+--------------------------------*/
+.slide{
+    width: 100vw;
+    height: 100vh;
+}
+.slide1{
+    background: url(../img/main.png) no-repeat center center;
+    background-size: cover;
+}
+.slide2{
+    background: url(../img/main02.jpg) no-repeat center center;
+    background-size: cover;
+}
+.slide3{
+    background: url(../img/main03.jpg) no-repeat center center;
+    background-size: cover;
+}
+.slick-dots{
+    bottom: 90px;
+}
+
+/*  header
+--------------------------------*/
+header{
+    width: 100vw;
+    height: 100vh;
+    /* background: url(../img/main.png) no-repeat center center;
+    background-size: cover; */
+    position: relative;
+    overflow: hidden;
+    /* アニメーション */
+    opacity: 0;
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-delay: 0;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+header h1{
+    /* h1を中央寄せ */
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto auto auto auto;
+    background-color: #ffffff;
+    /* 子要素のimgを中央寄せ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* アニメーション */
+    opacity: 0;
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+header .menu-button{
+    display: none;
+}
+header nav{
+    position: absolute;
+    bottom: -64px;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.8);
+    /* アニメーション */
+    animation-name: bottom-up;
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto 0 auto;
+}
+header h2{
+    width: 70px;
+    height: 43px;
+    padding: 11px 0 0 8px;
+}
+header h2 img{
+    width: 100%;
+}
+header .nav-list{
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    height: 64px;
+}
+header .nav-list li{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    padding: 0 9px 0 9px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+/* header .nav-list .active{
+    color: #cccccc;
+    border-bottom: 2px solid #CCCCCC;
+}
+header .nav-list .active a{
+    color: #cccccc;
+} */
+
+/*  .work-area
+--------------------------------*/
+.work-area{
+    padding: 80px 0 80px 0;
+}
+.work-block{
+    display: flex;
+    margin: 0 0 64px 0;
+}
+.work-block section{
+    width: 33.333%;
+    height: 460px;
+    background-color: #cccccc;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+    opacity: 0;
+}
+.work-block section h3{
+    height: 44px;
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.16);
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    margin: auto auto auto auto;
+}
+.graphic{
+    background: url(../img/work01.png) no-repeat center center;
+    background-size: cover;
+    animation-delay: 1s;
+}
+.signage-vr{
+    background: url(../img/work02.png) no-repeat center center;
+    background-size: cover;
+    animation-delay: 1.5s;
+}
+.ui-ux{
+    background: url(../img/work03.png) no-repeat center center;
+    background-size: cover;
+    animation-delay: 2s;
+}
+.hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    /* トランジション */
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-delay: 0;
+    transition-timing-function: ease-in-out;
+}
+.work-block section:hover .hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*  #overlay
+--------------------------------*/
+#overlay{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* 非表示 */
+    opacity: 0;
+    pointer-events: none;
+}
+.modal{
+    width: 40%;
+    height: 100%;
+    margin: 0 auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal img{
+    width: 100%;
+    height: auto;
+}
+#overlay.fade-in{
+    pointer-events: visible;
+}
+
+/*  .news-area
+--------------------------------*/
+.news-area{
+    padding: 80px 0 80px 0;
+    background-color: #e6e6e6;
+}
+.news-block-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto 64px auto;
+}
+.news-block{
+    width: 31.578%;
+    background-color: #ffffff;
+}
+.news-block img{
+    width: 100%;
+}
+.news-box{
+    height: 160px;
+    padding: 24px 16px 24px 16px;
+}
+.news-box div{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 24px 0;
+}
+.datetime{
+    font-size: 11px;
+}
+.category{
+    font-size: 11px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #ffffff;
+    width: 90px;
+    height: 18px;
+    border-radius: 2px 2px 2px 2px;
+}
+.seminar{
+    background-color: #17D8E6;
+}
+.media{
+    background-color: #E69A17;
+}
+.recruit{
+    background-color: #A0A0A0;
+}
+
+
+/*  footer
+--------------------------------*/
+footer{
+    padding: 80px 0;
+}
+footer h1{
+    margin: 0 auto 64px;
+    width: 75px;
+}
+footer h1 img{
+    width: 100%;
+    height: auto;
+}
+footer nav{
+    margin-bottom: 64px;
+}
+.footer-nav-global{
+    display: flex;
+    justify-content: space-between;
+    width: 265px;
+    margin: 0 auto 24px;
+}
+.footer-nav-global a{
+    font-size: 14px;
+}
+.footer-nav-sns{
+    display: flex;
+    justify-content: space-between;
+    width: 68px;
+    margin: 0 auto;
+}
+footer address{
+    text-align: center;
+    margin-bottom: 64px;
+}
+footer address p:nth-of-type(1){
+    margin-bottom: 24px;
+}
+footer small{
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-family: "Montserrat";
+}
+
+@media(max-width: 767px){
+    /*  header
+    --------------------------------*/
+    header{
+        background: url(../img/sp/main@2x.png) no-repeat center center;
+        background-size: cover;
+    }
+    header .menu-button{
+        display: block;
+        position: fixed; /* 追加 *//* 変更 */
+        top: 16px;
+        right: 16px;
+        z-index: 10; /* 追加 */
+        width: 32px; /* 追加 */
+        height: 24px; /* 追加 */
+    }
+    /* 追加 */
+    header .menu-button span{
+        position: absolute;
+        width: 32px;
+        height: 4px;
+        background-color: #333333;
+        border-radius: 4px;
+        /* トランジション */
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-delay: 0;
+        transition-timing-function: ease-in-out;
+    }
+    /* 追加 */
+    header .menu-button span:nth-of-type(1){
+        top: 0;
+    }
+    /* 追加 */
+    header .menu-button span:nth-of-type(2){
+        top: 10px;
+    }
+    /* 追加 */
+    header .menu-button span:nth-of-type(3){
+        top: 20px;
+    }
+    /* 追加 */
+    header .menu-button.active span:nth-of-type(1){
+        top: 0;
+        transform: translateY(12px) rotate(-45deg);
+    }
+    /* 追加 */
+    header .menu-button.active span:nth-of-type(2){
+        opacity: 0;
+    }
+    /* 追加 */
+    header .menu-button.active span:nth-of-type(3){
+        top: 0;
+        transform: translateY(12px) rotate(-135deg);
+    }
+    header nav{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1; /* 追加 */
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        /* アニメーション */
+        animation: unset;
+        /* display: none; */
+        opacity: 0; /* 追加 */
+        pointer-events: none; /* 追加 */
+        /* トランジション */
+        transition-property: all;
+        transition-duration: 0.6s;
+        transition-delay: 0;
+        transition-timing-function: ease-in-out;
+    }
+    header nav.active{
+        opacity: 1; /* 追加 */
+        pointer-events: auto; /* 追加 */
+    }
+    header .container{
+        display: block;
+    }
+    header h2{
+        padding: 80px 0 0 0;
+        margin: 0 auto 40px auto;
+    }
+    header .nav-list{
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 40px 0 0 0;
+    }
+    header .nav-list li{
+        display: block;
+        text-align: center;
+    }
+    
+    /*  .work-area
+    --------------------------------*/
+    .work-block{
+        display: block;
+    }
+    .work-block section{
+        width: 100%;
+    }
+
+    /*  .news-area
+    --------------------------------*/
+    .news-block-container{
+        display: block;
+        padding: 0 16px;
+    }
+    .news-block{
+        width: 100%;
+        background-color: #ffffff;
+        margin: 0 0 32px 0;
+    }
+}
